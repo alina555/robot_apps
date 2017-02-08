@@ -1,0 +1,57 @@
+*** Settings ***
+Library           XML
+Library           OperatingSystem
+Library           Collections
+
+*** Variables ***
+${XmlFile}        conference.xml
+
+*** Test Cases ***
+1. Узнать количество конференций.
+    ${confname_count} =	Get Element Count 	${XMLFile}	items/item
+    log to console   count of conferenceNames is ${confname_count}
+
+
+2. Проверить, что в файле есть данные о конференции под названием "Сентябрьская конференция детского жалобного взгляда".
+    Element Should Exist    ${XMLFile}      items/item[4]/conferenceName
+    ${text} =	Get Element Text	${XMLFile}	items/item[4]/conferenceName
+    Should Be Equal	${text}	Сентябрьская конференция детского жалобного взгляда
+
+
+2.1. Проверить, что в файле есть данные о конференции под названием "Сентябрьская конференция детского жалобного взгляда".
+    @{conferenceNames} =	Get Elements Texts	${XMLFile}	items/item/conferenceName
+    @{MyList}=    Create List
+    Append To List    ${MyList}    @{conferenceNames}
+    List Should Contain Value    ${MyList}    Сентябрьская конференция детского жалобного взгляда
+
+
+3. Проверить, что Дмитрий Залётов принял участие в третьей конференции.
+    @{text_date4}    Get Elements Texts    ${XMLFile}    items/item/conferenceInfo/conferenceDate
+    ${result_str}    Convert To String    ${text_date4}
+    Create File    d:/my/projects/conferences_list_exit.txt    ${result_str}
+
+3.1
+    ${text} =	Get Element Text	${XMLFile}	items/item[3]/conferee/confereeName
+    Should Be Equal	${text}	Дмитрий Залётов
+
+4. Проверить, что в файле нет данных о днях рождения участников (атрибут "birthdate").
+    Element Should Not Exist    ${XMLFile}	items/item/conferee/birthdate
+
+5. Проверить, что нет информации о списке (атрибут "listInfo" должен быть пустым).
+    @{texts} =	Get Elements Texts	${XMLFile}	listInfo
+    Should Be Equal	@{texts}[0]	${EMPTY}
+5.1.Проверить, что нет информации о списке (атрибут "listInfo" должен быть пустым).
+    ${text_date3}    Get Element Text    ${XMLFile}    listInfo
+    Should Be Empty    ${text_date3}
+
+
+6. Сохранить в произвольный файл список дат конференций.
+    ${texts} =	Get Elements Texts	${XMLFile}	items/item/conferenceInfo/conferenceDate
+    log to console      ${texts}
+    createFile    fantastic.txt     encoding=UTF-8
+    Append To File  fantastic.txt   ${texts}[0]    encoding=UTF-8
+
+6.1 Сохранить в произвольный файл список дат конференций.
+    @{text_date4}    Get Elements Texts    ${XMLFile}    items/item/conferenceInfo/conferenceDate
+    ${result_str}    Convert To String    ${text_date4}
+    Create File    d:/my/projects/conferences_list_exit.txt    ${result_str}

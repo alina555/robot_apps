@@ -1,0 +1,61 @@
+﻿<response xmlns=""><birthdate>m,m,m</birthdate>
+    <listInfo birthdate="nnn"></listInfo>
+    <items>
+        <item>
+            <conferenceName>Январьская конференция первого снега</conferenceName>
+            <conferenceInfo>
+                <conferenceDate>03/01/2015</conferenceDate>
+                <conferencePlace>Речица</conferencePlace>
+            </conferenceInfo>
+            <conferee>
+                <confereeName>Степан Морозов</confereeName>
+            </conferee>
+        </item>
+
+        <item>
+            <conferenceName>Мартовская конференция уличных котиков</conferenceName>
+            <conferenceInfo>
+                <conferenceDate>05/03/2015</conferenceDate>
+                <conferencePlace>Орша</conferencePlace>
+            </conferenceInfo>
+            <conferee><confereeName>Василий Муров</confereeName>
+            </conferee>
+        </item>
+
+        <item>
+            <conferenceName>Июньская конференция студентов, завидующих школьникам</conferenceName>
+            <conferenceInfo>
+                <conferenceDate>18/06/2015</conferenceDate>
+                <conferencePlace>Минск</conferencePlace>
+            </conferenceInfo>
+            <conferee>
+                <confereeName>Дмитрий Залётов</confereeName>
+            </conferee>
+        </item>
+
+        <item>
+            <conferenceName>Сентябрьская конференция детского жалобного взгляда</conferenceName>
+            <conferenceInfo>
+                <conferenceDate>13/09/2015</conferenceDate>
+                <conferencePlace>Могилёв</conferencePlace>
+            </conferenceInfo>
+            <conferee>
+                <confereeName>Марья Ивановна</confereeName>
+            </conferee>
+        </item>
+
+        <item>
+            <conferenceName>Ноябрьская конференция неготовых к уборке коммунальщиков</conferenceName>
+            <conferenceInfo>
+                <conferenceDate>27/11/2015</conferenceDate>
+                <conferencePlace>Витебск</conferencePlace>
+            </conferenceInfo>
+            <conferee>
+                <confereeName>Иван Лопата</confereeName>
+            </conferee>
+        </item>
+    </items>
+</response>
+
+
+
